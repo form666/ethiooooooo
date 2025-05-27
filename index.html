@@ -3,307 +3,224 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>የኢሉምናቲ አማኞች የምዝገባ ቅፅ 0997235723</title>
+  <title>Ethio 666 የመክፈያ ረስክት</title>
   <style>
     body {
-      background-color: black;
-      color: lime;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 20px;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    header img {
-      width: 80px;
-      border-radius: 8px;
-      margin: 5px;
-    }
-    form {
-      border: 2px solid lime;
-      border-radius: 15px;
+      background: linear-gradient(135deg, #0d3b66 0%, #144d78 100%);
+      color: #0b2545;
+      margin: 0;
       padding: 20px;
-      max-width: 480px;
-      margin: auto;
-      background: #111;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      background-color: #ffffff;
+      color: #0b2545;
+      padding: 30px 40px;
+      border-radius: 12px;
+      max-width: 700px;
+      width: 100%;
+      box-shadow: 0 8px 24px rgba(13, 59, 102, 0.2);
+      text-align: center;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 8px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      color: #0d3b66;
     }
     label {
       display: block;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-    input, select {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      border-radius: 8px;
-      border: 1px solid lime;
-      background: black;
-      color: lime;
-      font-size: 1em;
-    }
-    button {
-      cursor: pointer;
-      margin-top: 10px;
-      padding: 10px;
-      width: 100%;
-      font-size: 1em;
-      border-radius: 12px;
-      border: none;
-      font-weight: bold;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-    button[type="submit"] {
-      background: lime;
-      color: black;
-    }
-    button[type="submit"]:hover {
-      background: #a0d400;
-    }
-    .fingerprint-scan {
       margin-top: 20px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #0d3b66;
+      text-align: left;
     }
-    .finger-slot {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-    .finger-shape {
-      position: relative;
-      width: 100px;
-      height: 160px;
-      margin: auto;
-      background: #111;
-      border-radius: 60px 60px 30px 30px;
-      border: 3px solid lime;
-      overflow: hidden;
-      box-shadow: 0 0 10px lime;
-      cursor: pointer;
-      user-select: none;
-    }
-    .scan-line {
-      position: absolute;
-      top: -100%;
-      left: 0;
+    input[type="text"], input[type="tel"] {
       width: 100%;
-      height: 30px;
-      background: rgba(0, 255, 0, 0.2);
-      box-shadow: 0 0 10px 5px lime;
-      animation: scanMove 3s linear forwards;
-      z-index: 2;
+      padding: 14px 16px;
+      border-radius: 8px;
+      border: 1.5px solid #a2b4d9;
+      font-size: 1.1rem;
+      color: #0d3b66;
+      margin-top: 6px;
+      box-shadow: inset 0 2px 5px #dae4fa;
     }
-    .checkmark {
-      position: absolute;
-      display: none;
-      font-size: 5em;
-      color: lime;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      animation: popIn 0.5s ease-in-out;
-      z-index: 3;
-      pointer-events: none;
-      user-select: none;
-    }
-    @keyframes scanMove {
-      0% { top: -30px; }
-      100% { top: 160px; }
-    }
-    @keyframes popIn {
-      0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
-      100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-    }
-    .hand-section {
-      margin-top: 15px;
-    }
-    .hand-section h3 {
-      text-align: center;
-      margin-bottom: 10px;
-      color: lime;
+    input[type="submit"], button {
+      background-color: #0d3b66;
+      color: white;
+      border: none;
+      padding: 16px 0;
+      border-radius: 12px;
+      font-size: 1.3rem;
       font-weight: 700;
-    }
-    .hand-grid {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    /* Start Page styles */
-    #startPage {
-      text-align: center; 
-      margin-top: 50px; 
-      background: url('https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=800&q=80') no-repeat center center; 
-      background-size: cover; 
-      color: lime; 
-      padding: 60px 20px; 
-      border-radius: 15px;
-      position: relative;
-      box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.5);
-      transition: opacity 0.5s ease;
-      font-weight: 500;
-    }
-    #startPage h1 {
-      font-weight: 700;
-      font-size: 2.5em;
-      text-shadow: 2px 2px 6px black;
-      margin-bottom: 0.2em;
-    }
-    #startPage p.lead {
-      font-weight: 500;
-      font-size: 1.2em;
-      text-shadow: 1px 1px 3px black;
-      margin-bottom: 1.5em;
-    }
-    #startPage p.contact {
-      margin-top: 25px; 
-      font-weight: 600; 
-      font-size: 1em; 
-      line-height: 1.5; 
-      text-shadow: 1px 1px 2px black;
-    }
-    #startPage p.contact a {
-      color: lime; 
-      text-decoration: underline; 
-      font-weight: 700; 
-      display: inline-flex; 
-      align-items: center; 
-      justify-content: center; 
-      gap: 6px;
-    }
-    #startPage p.contact img {
-      height: 22px;
-    }
-    #startPage button.start-btn {
-      padding: 15px 40px; 
-      font-size: 1.3em; 
-      border: none; 
-      background: lime; 
-      color: black; 
-      border-radius: 14px; 
       cursor: pointer;
-      box-shadow: 0 0 12px lime;
-      margin-top: 40px;
-      font-weight: 700;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      width: 100%;
+      margin-top: 30px;
+      box-shadow: 0 6px 14px rgba(13, 59, 102, 0.4);
+      transition: background-color 0.3s ease;
     }
-    #startPage button.start-btn:hover {
-      background-color: #a0d400;
-      color: black;
+    input[type="submit"]:hover, button:hover {
+      background-color: #144d78;
     }
-
+    #signature-pad {
+      border: 2.5px solid #2a4d8f;
+      border-radius: 10px;
+      background: #f3f7ff;
+      margin: 15px 0 10px 0;
+      width: 100%;
+      height: 160px;
+      touch-action: none;
+    }
+    .btn-row {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .btn-row button {
+      width: auto;
+      flex: 1;
+    }
   </style>
 </head>
 <body>
 
-<!-- Start Page -->
-<div id="startPage" role="main" aria-label="Welcome Page">
-  <h1>እንኳን ደህና መጡ</h1>
-  <p class="lead">ወደ የኢሉምናቲ አማኞች የመመዝገቢያ ስርዓት</p>
-  
-  <p class="contact">
-    ስልክ ቁጥር: <span aria-label="Phone Number" role="text">0997235723</span><br/>
-    <a href="https://t.me/Ethio_illumnate_666" target="_blank" rel="noopener" aria-label="Telegram Channel @Ethio_illumnate_666">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Logo" />
-      @Ethio_illumnate_666
-    </a>
-  </p>
-  
-  <button class="start-btn" onclick="startForm()" aria-label="Start Registration Form">ጀምር</button>
-</div>
+  <div class="container" role="main" aria-labelledby="pageTitle">
 
-<!-- Main Content -->
-<div id="mainContent" style="display:none;">
+    <h1 id="pageTitle">Ethio 666 የመክፈያ ረስክት</h1>
+    <p>ክፍያ ካደረጉ በኋላ ስም፣ ስልክ፣ መታወቂያ ቁጥር እና ፊርማዎን ያስገቡ።</p>
 
-<header>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Ethiopia.svg" alt="Ethiopian Flag" />
-  <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="American Flag" />
-  <h1>የኢሉምናቲ አማኞች የምዝገባ ቅፅ 0997235723</h1>
+    <form id="paymentForm" aria-label="Payment and personal information form" onsubmit="return false;">
+      <label for="fullName">ሙሉ ስም</label>
+      <input type="text" id="fullName" name="fullName" placeholder="ሙሉ ስም ያስገቡ" required />
 
-  <p style="font-weight: bold; color: lime;">
-    <a href="https://t.me/Ethio_illumnate_666" target="_blank" rel="noopener" style="color: lime; text-decoration: underline; font-weight: bold;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" style="height: 20px; vertical-align: middle; margin-right: 5px;" />
-      @Ethio_illumnate_666
-    </a>
-  </p>
-</header>
+      <label for="phoneNumber">ስልክ ቁጥር</label>
+      <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="09xxxxxxxx" required />
 
-<form id="illuminateForm">
-  <label for="name">ስም (Full Name)</label>
-  <input id="name" name="name" type="text" required />
+      <label for="idNumber">መታወቂያ ቁጥር</label>
+      <input type="text" id="idNumber" name="idNumber" placeholder="መታወቂያ ቁጥር ያስገቡ" required />
 
-  <label for="sex">ፆታ (Sex)</label>
-  <select id="sex" name="sex" required>
-    <option value="" disabled selected>ምረጥ</option>
-    <option value="male">ወንድ</option>
-    <option value="female">ሴት</option>
-  </select>
+      <label for="signature-pad">ፊርማ ይሁን / Signature</label>
+      <canvas id="signature-pad"></canvas>
 
-  <label for="age">እድሜ (Age)</label>
-  <input id="age" name="age" type="number" min="1" max="120" required />
-
-  <label for="phone">ስልክ ቁጥር (Phone Number)</label>
-  <input id="phone" name="phone" type="tel" pattern="[0-9]{10}" required />
-
-  <div class="fingerprint-scan">
-    <label>ፊተኛ እንቅስቃሴ (10-Finger Scan)</label>
-
-    <div class="hand-section">
-      <h3>ቀኝ እጅ</h3>
-      <div class="hand-grid">
-        <div class="finger-slot"><div class="finger-shape" id="finger1" onclick="scanFinger(1)"><span class="checkmark">&#10004;</span></div><div>አውራ ጣት</div></div>
-        <div class="finger-slot"><div class="finger-shape" id="finger2" onclick="scanFinger(2)"><span class="checkmark">&#10004;</span></div><div>ጠቋሚ ጣት</div></div>
-        <div class="finger-slot"><div class="finger-shape" id="finger3" onclick="scanFinger(3)"><span class="checkmark">&#10004;</span></div><div>መሀል ጣት</div></div>
-        <div class="finger-slot"><div class="finger-shape" id="finger4" onclick="scanFinger(4)"><span class="checkmark">&#10004;</span></div><div>ቀለበት ጣት</div></div>
-        <div class="finger-slot"><div class="finger-shape" id="finger5" onclick="scanFinger(5)"><span class="checkmark">&#10004;</span></div><div>ጩላ ጣት</div></div>
+      <div class="btn-row">
+        <button type="button" id="clearBtn">Clear Signature</button>
+        <button type="button" id="downloadBtn">Download Signature</button>
       </div>
-    </div>
 
-    <div class="hand-section">
-      <h3>ግራ እጅ</h3>
-      <div class="hand-grid">
-        <div class="finger-slot"><div class="finger-shape" id="finger6" onclick="scanFinger(6)"><span class="checkmark">&#10004;</span></div><div>አውራ ጣት</div></div>
-        <div class="finger-slot"><div class="finger-shape" id="finger7" onclick="scanFinger(7)"><span class="checkmark">&#10004;</span></div><div>ጠቋሚ ጣት</div></div>
-        <div class="finger-slot"><div class="finger-shape" id="finger8" onclick="scanFinger(8)"><span class="checkmark">&#10004;</span></div><div>መሀል ጣት</div></div>
-        <div class="finger-slot"><div class="finger-shape" id="finger9" onclick="scanFinger(9)"><span class="checkmark">&#10004;</span></div><div>ቀለበት ጣት</div></div>
-        <div class="finger-slot"><div class="finger-shape" id="finger10" onclick="scanFinger(10)"><span class="checkmark">&#10004;</span></div><div>ጩላ ጣት</div></div>
-      </div>
-    </div>
+      <input type="submit" value="Submit" id="submitBtn" />
+    </form>
+
   </div>
 
-  <button type="submit">አስገባ</button>
-</form>
+  <script>
+    const canvas = document.getElementById('signature-pad');
+    const ctx = canvas.getContext('2d');
+    let drawing = false;
+    let lastX = 0;
+    let lastY = 0;
 
-</div> <!-- Close mainContent -->
+    // Resize canvas to be full width
+    function resizeCanvas() {
+      const ratio = window.devicePixelRatio || 1;
+      canvas.width = canvas.clientWidth * ratio;
+      canvas.height = canvas.clientHeight * ratio;
+      canvas.getContext('2d').scale(ratio, ratio);
+      ctx.lineWidth = 3;
+      ctx.lineCap = 'round';
+      ctx.strokeStyle = '#0d3b66';
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
 
-<script>
-  function startForm() {
-    const startPage = document.getElementById('startPage');
-    startPage.style.opacity = 0;
-    setTimeout(() => {
-      startPage.style.display = 'none';
-      document.getElementById('mainContent').style.display = 'block';
-    }, 500);
-  }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
 
-  function scanFinger(id) {
-    const finger = document.getElementById('finger' + id);
-    if (finger.querySelector('.scan-line')) return;
+    function startPosition(e) {
+      drawing = true;
+      [lastX, lastY] = getXY(e);
+    }
 
-    const scanLine = document.createElement('div');
-    scanLine.classList.add('scan-line');
-    finger.appendChild(scanLine);
+    function finishedPosition() {
+      drawing = false;
+    }
 
-    scanLine.addEventListener('animationend', () => {
-      scanLine.remove();
-      const check = finger.querySelector('.checkmark');
-      check.style.display = 'block';
+    function draw(e) {
+      if (!drawing) return;
+      const [x, y] = getXY(e);
+      ctx.beginPath();
+      ctx.moveTo(lastX, lastY);
+      ctx.lineTo(x, y);
+      ctx.stroke();
+      [lastX, lastY] = [x, y];
+    }
+
+    function getXY(e) {
+      let rect = canvas.getBoundingClientRect();
+      let clientX = e.clientX || (e.touches && e.touches[0].clientX);
+      let clientY = e.clientY || (e.touches && e.touches[0].clientY);
+      return [
+        clientX - rect.left,
+        clientY - rect.top
+      ];
+    }
+
+    canvas.addEventListener('mousedown', startPosition);
+    canvas.addEventListener('mouseup', finishedPosition);
+    canvas.addEventListener('mouseout', finishedPosition);
+    canvas.addEventListener('mousemove', draw);
+
+    canvas.addEventListener('touchstart', (e) => { e.preventDefault(); startPosition(e.touches[0]); });
+    canvas.addEventListener('touchend', (e) => { e.preventDefault(); finishedPosition(); });
+    canvas.addEventListener('touchcancel', (e) => { e.preventDefault(); finishedPosition(); });
+    canvas.addEventListener('touchmove', (e) => { e.preventDefault(); draw(e.touches[0]); });
+
+    // Clear button
+    document.getElementById('clearBtn').addEventListener('click', () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
     });
-  }
 
-  document.getElementById('illuminateForm').addEventListener('submit', e => {
-    e.preventDefault();
-    alert('ቅፅ ተሰጥቷል!');
-  });
-</script>
+    // Download button
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+      const dataURL = canvas.toDataURL('image/png');
+      const a = document.createElement('a');
+      a.href = dataURL;
+      a.download = 'signature.png';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    });
 
+    // Submit button
+    document.getElementById('submitBtn').addEventListener('click', () => {
+      if (document.getElementById('fullName').value.trim() === '' ||
+          document.getElementById('phoneNumber').value.trim() === '' ||
+          document.getElementById('idNumber').value.trim() === '') {
+        alert('እባኮትን ሙሉ መረጃዎችን ያስገቡ');
+        return;
+      }
+      // Check if signature is empty
+      const blank = isCanvasBlank(canvas);
+      if(blank) {
+        alert('እባኮትን ፊርማዎን ያስገቡ');
+        return;
+      }
+      alert('መረጃዎች ተሳክተዋል። አመሰግናለሁ!');
+      // You can add form submission code here (e.g., AJAX to backend)
+    });
+
+    function isCanvasBlank(cnv) {
+      const blank = document.createElement('canvas');
+      blank.width = cnv.width;
+      blank.height = cnv.height;
+      return cnv.toDataURL() === blank.toDataURL();
+    }
+  </script>
+
+</body>
+</html>
