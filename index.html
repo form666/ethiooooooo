@@ -11,18 +11,15 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 20px;
     }
-
     header {
       text-align: center;
       margin-bottom: 20px;
     }
-
     header img {
       width: 80px;
       border-radius: 8px;
       margin: 5px;
     }
-
     form {
       border: 2px solid lime;
       border-radius: 15px;
@@ -31,13 +28,11 @@
       margin: auto;
       background: #111;
     }
-
     label {
       display: block;
       margin-top: 15px;
       font-weight: bold;
     }
-
     input, select {
       width: 100%;
       padding: 8px;
@@ -48,7 +43,6 @@
       color: lime;
       font-size: 1em;
     }
-
     button {
       cursor: pointer;
       margin-top: 10px;
@@ -59,20 +53,17 @@
       border: none;
       font-weight: bold;
     }
-
     button[type="submit"] {
       background: lime;
       color: black;
     }
-
     .fingerprint-scan {
       margin-top: 20px;
     }
-
     .finger-slot {
       text-align: center;
+      margin-bottom: 10px;
     }
-
     .finger-shape {
       position: relative;
       width: 100px;
@@ -85,7 +76,6 @@
       box-shadow: 0 0 10px lime;
       cursor: pointer;
     }
-
     .scan-line {
       position: absolute;
       top: -100%;
@@ -97,11 +87,10 @@
       animation: scanMove 3s linear forwards;
       z-index: 2;
     }
-
     .checkmark {
       position: absolute;
       display: none;
-      font-size: 3em;
+      font-size: 5em;
       color: lime;
       top: 50%;
       left: 50%;
@@ -109,46 +98,71 @@
       animation: popIn 0.5s ease-in-out;
       z-index: 3;
     }
-
     @keyframes scanMove {
       0% { top: -30px; }
       100% { top: 160px; }
     }
-
     @keyframes popIn {
       0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
       100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
     }
-
-    canvas#signaturePad {
-      border: 2px solid lime;
-      border-radius: 12px;
-      width: 100%;
-      height: 150px;
-      touch-action: none;
+    .hand-section {
+      margin-top: 15px;
     }
-
-    #clearSignature {
-      background: red;
-      color: white;
-      width: 48%;
-      display: inline-block;
+    .hand-section h3 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: lime;
     }
-
-    #downloadSignature {
-      background: lime;
-      color: black;
-      width: 48%;
-      display: inline-block;
-      float: right;
+    .hand-grid {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 10px;
     }
   </style>
 </head>
 <body>
 
+<!-- Start Page -->
+<div id="startPage" style="
+  text-align:center; 
+  margin-top:50px; 
+  background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80') no-repeat center center; 
+  background-size: cover; 
+  color: lime; 
+  padding: 60px 20px; 
+  border-radius: 15px;
+  position: relative;
+  box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.5);
+">
+  <h1 style="text-shadow: 2px 2px 4px black;">እንኳን ደህና መጡ</h1>
+  <p style="color: lime; text-shadow: 1px 1px 3px black;">ወደ የኢሉምናቲ አማኞች የመመዝገቢያ ስርዓት</p>
+  
+  <p style="margin-top: 20px; font-weight: bold; text-shadow: 1px 1px 2px black;">
+    ስልክ ቁጥር: 0997235723<br/>
+    <a href="https://t.me/Ethio_illumnate_666" target="_blank" style="color: lime; text-decoration: underline;">Telegram: @Ethio_illumnate_666</a>
+  </p>
+  
+  <button onclick="startForm()" style="
+    padding:15px 30px; 
+    font-size:1.2em; 
+    border:none; 
+    background: lime; 
+    color: black; 
+    border-radius: 12px; 
+    cursor: pointer;
+    box-shadow: 0 0 10px lime;
+    margin-top: 30px;
+  ">ጀምር</button>
+</div>
+
+<!-- Main Content -->
+<div id="mainContent" style="display:none;">
+
 <header>
   <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Ethiopia.svg" alt="Ethiopian Flag">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Abiy_Ahmed_2018.jpg/220px-Abiy_Ahmed_2018.jpg" alt="Prime Minister">
+  <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="American Flag">
   <h1>የኢሉምናቲ አማኞች የምዝገባ ቅፅ 0997235723</h1>
 </header>
 
@@ -171,124 +185,64 @@
 
   <div class="fingerprint-scan">
     <label>ፊተኛ እንቅስቃሴ (10-Finger Scan)</label>
-    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
-      <script>
-        for (let i = 1; i <= 10; i++) {
-          document.write(`
-            <div class="finger-slot">
-              <div class="finger-shape" id="finger${i}" onclick="scanFinger(${i})">
-                <span class="checkmark">&#10004;</span>
-              </div>
-            </div>
-          `);
-        }
-      </script>
+
+    <div class="hand-section">
+      <h3>ቀኝ እጅ</h3>
+      <div class="hand-grid">
+        <div class="finger-slot"><div class="finger-shape" id="finger1" onclick="scanFinger(1)"><span class="checkmark">&#10004;</span></div><div>አውራ ጣት</div></div>
+        <div class="finger-slot"><div class="finger-shape" id="finger2" onclick="scanFinger(2)"><span class="checkmark">&#10004;</span></div><div>ጠቋሚ ጣት</div></div>
+        <div class="finger-slot"><div class="finger-shape" id="finger3" onclick="scanFinger(3)"><span class="checkmark">&#10004;</span></div><div>መሀል ጣት</div></div>
+        <div class="finger-slot"><div class="finger-shape" id="finger4" onclick="scanFinger(4)"><span class="checkmark">&#10004;</span></div><div>ቀለበት ጣት</div></div>
+        <div class="finger-slot"><div class="finger-shape" id="finger5" onclick="scanFinger(5)"><span class="checkmark">&#10004;</span></div><div>ጩላ ጣት</div></div>
+      </div>
+    </div>
+
+    <div class="hand-section">
+      <h3>ግራ እጅ</h3>
+      <div class="hand-grid">
+        <div class="finger-slot"><div class="finger-shape" id="finger6" onclick="scanFinger(6)"><span class="checkmark">&#10004;</span></div><div>አውራ ጣት</div></div>
+        <div class="finger-slot"><div class="finger-shape" id="finger7" onclick="scanFinger(7)"><span class="checkmark">&#10004;</span></div><div>ጠቋሚ ጣት</div></div>
+        <div class="finger-slot"><div class="finger-shape" id="finger8" onclick="scanFinger(8)"><span class="checkmark">&#10004;</span></div><div>መሀል ጣት</div></div>
+        <div class="finger-slot"><div class="finger-shape" id="finger9" onclick="scanFinger(9)"><span class="checkmark">&#10004;</span></div><div>ቀለበት ጣት</div></div>
+        <div class="finger-slot"><div class="finger-shape" id="finger10" onclick="scanFinger(10)"><span class="checkmark">&#10004;</span></div><div>ጩላ ጣት</div></div>
+      </div>
     </div>
   </div>
-
-  <label for="signature">ፊርማ (Signature)</label>
-  <canvas id="signaturePad"></canvas>
-  <button type="button" id="clearSignature">ፊርማ አጽዳ</button>
-  <button type="button" id="downloadSignature">ፊርማ አስወጣ</button>
 
   <button type="submit">አስገባ</button>
 </form>
 
+</div> <!-- Close mainContent -->
+
 <script>
-  const canvas = document.getElementById('signaturePad');
-  const ctx = canvas.getContext('2d');
-  let drawing = false;
-
-  function resizeCanvas() {
-    const style = getComputedStyle(canvas);
-    canvas.width = parseInt(style.width);
-    canvas.height = parseInt(style.height);
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-    ctx.strokeStyle = 'lime';
-    ctx.lineWidth = 3;
+  // Start page logic
+  function startForm() {
+    document.getElementById('startPage').style.display = 'none';
+    document.getElementById('mainContent').style.display = 'block';
   }
 
-  resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
-
-  canvas.addEventListener('mousedown', () => drawing = true);
-  canvas.addEventListener('mouseup', () => { drawing = false; ctx.beginPath(); });
-  canvas.addEventListener('mousemove', draw);
-
-  canvas.addEventListener('touchstart', (e) => {
-    e.preventDefault();
-    drawing = true;
-    draw(e.touches[0]);
-  });
-
-  canvas.addEventListener('touchend', () => {
-    drawing = false;
-    ctx.beginPath();
-  });
-
-  canvas.addEventListener('touchmove', (e) => {
-    e.preventDefault();
-    draw(e.touches[0]);
-  });
-
-  function draw(e) {
-    if (!drawing) return;
-    const rect = canvas.getBoundingClientRect();
-    ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
-  }
-
-  document.getElementById('clearSignature').onclick = () => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-  };
-
-  document.getElementById('downloadSignature').onclick = () => {
-    if (isCanvasBlank(canvas)) {
-      alert('እባክዎ ፊርማ ያስገቡ ከዚያ በኋላ ያስወጡ።');
-      return;
-    }
-    const link = document.createElement('a');
-    link.download = 'signature.png';
-    link.href = canvas.toDataURL('image/png');
-    link.click();
-  };
-
-  function isCanvasBlank(cnv) {
-    const blank = document.createElement('canvas');
-    blank.width = cnv.width;
-    blank.height = cnv.height;
-    return cnv.toDataURL() === blank.toDataURL();
-  }
-
-  function scanFinger(fingerNumber) {
-    const finger = document.getElementById(`finger${fingerNumber}`);
-    const oldScan = finger.querySelector('.scan-line');
-    const checkmark = finger.querySelector('.checkmark');
-
-    if (oldScan) oldScan.remove();
-    checkmark.style.display = 'none';
+  // Finger scanning animation and checkmark show
+  function scanFinger(id) {
+    const finger = document.getElementById('finger' + id);
+    if (finger.querySelector('.scan-line')) return; // Already scanning
 
     const scanLine = document.createElement('div');
-    scanLine.className = 'scan-line';
+    scanLine.classList.add('scan-line');
     finger.appendChild(scanLine);
 
-    setTimeout(() => {
+    scanLine.addEventListener('animationend', () => {
       scanLine.remove();
-      checkmark.style.display = 'block';
-    }, 3000);
+      const check = finger.querySelector('.checkmark');
+      check.style.display = 'block';
+    });
   }
 
-  document.getElementById('illuminateForm').onsubmit = (e) => {
+  // Form submission
+  document.getElementById('illuminateForm').addEventListener('submit', e => {
     e.preventDefault();
-    if (isCanvasBlank(canvas)) {
-      alert('እባክዎ ፊርማ ያስገቡ ከመላክ በፊት።');
-      return;
-    }
-    alert('የመመዝገብዎ መረጃ ተቀባይነት አግኝቷል!');
-  };
+    alert('ቅፅ ተሰጥቷል!'); // "Form submitted!" in Amharic
+    // You can add backend submission logic here
+  });
 </script>
 
 </body>
