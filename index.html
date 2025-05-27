@@ -52,10 +52,14 @@
       border-radius: 12px;
       border: none;
       font-weight: bold;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
     button[type="submit"] {
       background: lime;
       color: black;
+    }
+    button[type="submit"]:hover {
+      background: #a0d400;
     }
     .fingerprint-scan {
       margin-top: 20px;
@@ -75,6 +79,7 @@
       overflow: hidden;
       box-shadow: 0 0 10px lime;
       cursor: pointer;
+      user-select: none;
     }
     .scan-line {
       position: absolute;
@@ -97,6 +102,8 @@
       transform: translate(-50%, -50%);
       animation: popIn 0.5s ease-in-out;
       z-index: 3;
+      pointer-events: none;
+      user-select: none;
     }
     @keyframes scanMove {
       0% { top: -30px; }
@@ -113,6 +120,7 @@
       text-align: center;
       margin-bottom: 10px;
       color: lime;
+      font-weight: 700;
     }
     .hand-grid {
       display: flex;
@@ -120,50 +128,104 @@
       flex-wrap: wrap;
       gap: 10px;
     }
+
+    /* Start Page styles */
+    #startPage {
+      text-align: center; 
+      margin-top: 50px; 
+      background: url('https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=800&q=80') no-repeat center center; 
+      background-size: cover; 
+      color: lime; 
+      padding: 60px 20px; 
+      border-radius: 15px;
+      position: relative;
+      box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.5);
+      transition: opacity 0.5s ease;
+      font-weight: 500;
+    }
+    #startPage h1 {
+      font-weight: 700;
+      font-size: 2.5em;
+      text-shadow: 2px 2px 6px black;
+      margin-bottom: 0.2em;
+    }
+    #startPage p.lead {
+      font-weight: 500;
+      font-size: 1.2em;
+      text-shadow: 1px 1px 3px black;
+      margin-bottom: 1.5em;
+    }
+    #startPage p.contact {
+      margin-top: 25px; 
+      font-weight: 600; 
+      font-size: 1em; 
+      line-height: 1.5; 
+      text-shadow: 1px 1px 2px black;
+    }
+    #startPage p.contact a {
+      color: lime; 
+      text-decoration: underline; 
+      font-weight: 700; 
+      display: inline-flex; 
+      align-items: center; 
+      justify-content: center; 
+      gap: 6px;
+    }
+    #startPage p.contact img {
+      height: 22px;
+    }
+    #startPage button.start-btn {
+      padding: 15px 40px; 
+      font-size: 1.3em; 
+      border: none; 
+      background: lime; 
+      color: black; 
+      border-radius: 14px; 
+      cursor: pointer;
+      box-shadow: 0 0 12px lime;
+      margin-top: 40px;
+      font-weight: 700;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    #startPage button.start-btn:hover {
+      background-color: #a0d400;
+      color: black;
+    }
+
   </style>
 </head>
 <body>
 
 <!-- Start Page -->
-<div id="startPage" style="
-  text-align:center; 
-  margin-top:50px; 
-  background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80') no-repeat center center; 
-  background-size: cover; 
-  color: lime; 
-  padding: 60px 20px; 
-  border-radius: 15px;
-  position: relative;
-  box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.5);
-">
-  <h1 style="text-shadow: 2px 2px 4px black;">እንኳን ደህና መጡ</h1>
-  <p style="color: lime; text-shadow: 1px 1px 3px black;">ወደ የኢሉምናቲ አማኞች የመመዝገቢያ ስርዓት</p>
+<div id="startPage" role="main" aria-label="Welcome Page">
+  <h1>እንኳን ደህና መጡ</h1>
+  <p class="lead">ወደ የኢሉምናቲ አማኞች የመመዝገቢያ ስርዓት</p>
   
-  <p style="margin-top: 20px; font-weight: bold; text-shadow: 1px 1px 2px black;">
-    ስልክ ቁጥር: 0997235723<br/>
-    <a href="https://t.me/Ethio_illumnate_666" target="_blank" style="color: lime; text-decoration: underline;">Telegram: @Ethio_illumnate_666</a>
+  <p class="contact">
+    ስልክ ቁጥር: <span aria-label="Phone Number" role="text">0997235723</span><br/>
+    <a href="https://t.me/Ethio_illumnate_666" target="_blank" rel="noopener" aria-label="Telegram Channel @Ethio_illumnate_666">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Logo" />
+      @Ethio_illumnate_666
+    </a>
   </p>
   
-  <button onclick="startForm()" style="
-    padding:15px 30px; 
-    font-size:1.2em; 
-    border:none; 
-    background: lime; 
-    color: black; 
-    border-radius: 12px; 
-    cursor: pointer;
-    box-shadow: 0 0 10px lime;
-    margin-top: 30px;
-  ">ጀምር</button>
+  <button class="start-btn" onclick="startForm()" aria-label="Start Registration Form">ጀምር</button>
 </div>
 
 <!-- Main Content -->
 <div id="mainContent" style="display:none;">
 
 <header>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Ethiopia.svg" alt="Ethiopian Flag">
-  <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="American Flag">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Ethiopia.svg" alt="Ethiopian Flag" />
+  <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="American Flag" />
   <h1>የኢሉምናቲ አማኞች የምዝገባ ቅፅ 0997235723</h1>
+
+  <p style="font-weight: bold; color: lime;">
+    <a href="https://t.me/Ethio_illumnate_666" target="_blank" rel="noopener" style="color: lime; text-decoration: underline; font-weight: bold;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" style="height: 20px; vertical-align: middle; margin-right: 5px;" />
+      @Ethio_illumnate_666
+    </a>
+  </p>
 </header>
 
 <form id="illuminateForm">
@@ -215,16 +277,18 @@
 </div> <!-- Close mainContent -->
 
 <script>
-  // Start page logic
   function startForm() {
-    document.getElementById('startPage').style.display = 'none';
-    document.getElementById('mainContent').style.display = 'block';
+    const startPage = document.getElementById('startPage');
+    startPage.style.opacity = 0;
+    setTimeout(() => {
+      startPage.style.display = 'none';
+      document.getElementById('mainContent').style.display = 'block';
+    }, 500);
   }
 
-  // Finger scanning animation and checkmark show
   function scanFinger(id) {
     const finger = document.getElementById('finger' + id);
-    if (finger.querySelector('.scan-line')) return; // Already scanning
+    if (finger.querySelector('.scan-line')) return;
 
     const scanLine = document.createElement('div');
     scanLine.classList.add('scan-line');
@@ -237,13 +301,9 @@
     });
   }
 
-  // Form submission
   document.getElementById('illuminateForm').addEventListener('submit', e => {
     e.preventDefault();
-    alert('ቅፅ ተሰጥቷል!'); // "Form submitted!" in Amharic
-    // You can add backend submission logic here
+    alert('ቅፅ ተሰጥቷል!');
   });
 </script>
 
-</body>
-</html>
