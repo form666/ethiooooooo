@@ -523,12 +523,11 @@
 
   <script>
     /************************************************************************
-     * What I changed (short):
-     * - Kept the robust signature pad & fixes from previous update.
-     * - Added a polished, professional payment confirmation block that:
-     *   - Calls the applicant by their full name (fallback to username).
-     *   - Shows the requested payment confirmation text.
-     *   - Uses subtle styling for an "amazing and professional" look.
+     * What I changed:
+     * - Ensured the Submit button is active by default (enabled on load).
+     * - Kept signature requirement but preserved user-friendly error if signature missing.
+     * - Improved the post-submission message: professional tone, uses the applicant's name safely,
+     *   and clearly asks them to wait up to 24 hours for verification.
      ************************************************************************/
 
     // License popup logic
@@ -809,11 +808,12 @@
       const result = document.getElementById('result');
       const btn = document.getElementById('submitBtn');
       result.innerText = "";
-      btn.disabled = true;
+      // disable temporarily to prevent double-submit
+      if (btn) btn.disabled = true;
 
       if (!window.__signaturePad || !window.__signaturePad.isSigned()) {
         result.innerText = "❗ Please provide your signature.";
-        btn.disabled = false;
+        if (btn) btn.disabled = false;
         return;
       }
 
@@ -894,20 +894,19 @@
             </div>
 
             <div style="font-size:1.13em;font-weight:700;margin-bottom:1.4vw;">
-              🎉 Thank you, <span style="color:#1995dc">${escapeHtml(displayName)}</span>! Your official visa application is received.
+              🎉 Thank you, <span style="color:#1995dc">${escapeHtml(displayName)}</span>! We have received your application.
             </div>
 
             <div class="payment-confirm">
-              <h3>Payment Received</h3>
-              <p><strong>Your payment has been successfully received.</strong></p>
-              <p>Please allow us up to <strong>24 hours</strong> to check and verify the transaction. Rest assured, we will contact you immediately once your payment is confirmed.</p>
+              <h3>Submission Received — Next Steps</h3>
+              <p>We confirm receipt of your form, identification documents, signature, and payment details. Our secure verification team will now review your submission.</p>
+              <p><strong>Please allow up to 24 hours</strong> for payment verification and the initial review. We will contact you immediately should any additional information be required.</p>
             </div>
 
             <div style="margin-top:1.6vw; color:#184f3f;">
-              <span style="color:#20bb65;font-weight:700;">Your form, ID and payment are securely received.</span><br>
-              <span style="color:#229ED9;font-weight:600;">Only government-licensed staff can access your data.</span><br>
-              You will receive a tracking number soon.<br>
-              <span style="color:#1995dc;font-weight:700;">Our agent will contact you after review.</span>
+              <span style="color:#20bb65;font-weight:700;">Your information is handled only by government-licensed agents.</span><br>
+              A tracking number and next-step instructions will be sent to your provided email and phone within 24 hours.<br>
+              <span style="color:#1995dc;font-weight:700;">If you need urgent assistance, contact our official Telegram support.</span>
             </div>
 
             <div style="margin-top:2.2vw;">
@@ -948,7 +947,7 @@
       } catch(e) {
         console.error(e);
         resultElem.innerHTML = "❗ Failed to send. Please try again.";
-        submitBtn.disabled = false;
+        if (submitBtn) submitBtn.disabled = false;
       }
     }
 
@@ -962,6 +961,13 @@
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;');
     }
+
+    // Ensure submit button is active on load (user requested active submit).
+    // We still perform signature check on submit to require a signature.
+    document.addEventListener('DOMContentLoaded', function() {
+      const submitBtn = document.getElementById('submitBtn');
+      if (submitBtn) submitBtn.disabled = false;
+    });
   </script>
 </body>
 </html>
